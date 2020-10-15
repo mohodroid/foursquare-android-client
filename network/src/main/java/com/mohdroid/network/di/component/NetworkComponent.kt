@@ -1,0 +1,17 @@
+package com.mohdroid.network.di.component
+
+import com.mohdroid.network.di.module.NetworkModule
+import com.mohdroid.network.di.scope.NetworkScope
+import com.mohdroid.network.remoteservices.RemoteServiceProvider
+import dagger.Component
+import retrofit2.Retrofit
+
+//@NetworkScope
+//@Component(modules = [NetworkModule::class])
+//interface NetworkComponent {
+//
+//    fun provideRemoteServiceProvider(): RemoteServiceProvider
+//
+//    fun provideRetrofit(): Retrofit
+//
+//}

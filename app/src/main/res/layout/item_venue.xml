@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/CardView.Light"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/margin_small"
+    android:layout_marginTop="@dimen/margin_small"
+    android:layout_marginEnd="@dimen/margin_small">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/venue_image"
+            android:layout_width="@dimen/venue_image_width"
+            android:layout_height="@dimen/venue_image_height"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:padding="@dimen/spacing_micro"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:srcCompat="@color/colorAccent" />
+
+        <com.mohdroid.foursquare.utils.widget.TextViewCustom
+            android:id="@+id/title_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/spacing_micro"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/spacing_micro"
+            android:ellipsize="end"
+            android:gravity="right"
+            android:lines="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="@dimen/title_venue_text_size"
+            app:layout_constraintEnd_toStartOf="@id/venue_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/venue_image"
+            tools:text="title" />
+
+        <com.mohdroid.foursquare.utils.widget.TextViewCustom
+            android:id="@+id/address_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_micro"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/spacing_micro"
+            android:ellipsize="end"
+            android:gravity="right"
+            android:lines="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="#8A000000"
+            android:textSize="@dimen/address_venue_text_size"
+            app:layout_constraintEnd_toStartOf="@id/venue_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_text"
+            tools:text="address" />
+
+        <com.mohdroid.foursquare.utils.widget.TextViewCustomLight
+            android:id="@+id/ll_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:gravity="end"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="#8A000000"
+            android:textSize="@dimen/ll_venue_text_size"
+            app:layout_constraintEnd_toStartOf="@id/venue_image"
+            app:layout_constraintBottom_toBottomOf="@id/venue_image"
+            tools:text="123456,123456789" />
+
+        <com.mohdroid.foursquare.utils.widget.TextViewCustom
+            android:id="@+id/rate_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:gravity="end"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="#FFB517"
+            android:textSize="@dimen/rate_venue_text_size"
+            app:layout_constraintBottom_toBottomOf="@id/ll_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ll_text"
+            tools:text="4.5" />
+
+        <ImageView
+            android:layout_marginBottom="@dimen/spacing_micro"
+            android:layout_marginStart="@dimen/spacing_micro"
+            app:layout_constraintTop_toTopOf="@id/ll_text"
+            app:layout_constraintBottom_toBottomOf="@id/ll_text"
+            app:layout_constraintStart_toEndOf="@id/rate_text"
+            app:srcCompat="@drawable/ic_star"
+            android:layout_width="12dp"
+            android:layout_height="12dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

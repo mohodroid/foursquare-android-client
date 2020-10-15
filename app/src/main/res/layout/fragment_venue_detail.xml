@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ProgressBar
+        android:id="@+id/prg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/venue_image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/venue_detail_image_height"
+        android:adjustViewBounds="true"
+        android:elevation="-2dp"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="@string/venue_detail_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@color/colorPrimary" />
+
+    <com.mohdroid.foursquare.utils.widget.TextViewCustom
+        android:id="@+id/title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_normal"
+        android:ellipsize="end"
+        android:gravity="right"
+        android:lines="1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="@dimen/title_venue_detail_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/venue_image"
+        tools:text="title" />
+
+    <com.mohdroid.foursquare.utils.widget.TextViewCustomLight
+        android:id="@+id/category_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/spacing_micro"
+        android:layout_marginEnd="@dimen/margin_normal"
+        android:layout_marginBottom="@dimen/spacing_micro"
+        android:ellipsize="end"
+        android:gravity="right"
+        android:lines="1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/address_venue_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_text"
+        tools:text="coffee" />
+
+    <ImageView
+        android:id="@+id/rate_view"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_marginStart="@dimen/margin_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/title_text"
+        app:srcCompat="@drawable/ic_star" />
+
+    <com.mohdroid.foursquare.utils.widget.TextViewCustom
+        android:id="@+id/rate_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:gravity="end"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#FFB517"
+        android:textSize="@dimen/rate_venue_detail_text_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rate_view"
+        tools:text="4.5" />
+
+    <com.mohdroid.foursquare.utils.widget.TextViewCustomLight
+        android:id="@+id/desc_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintTop_toBottomOf="@id/category_text"
+        tools:text="desc about venue" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

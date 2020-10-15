@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Foursquare</string>
+    <string name="no_location_detected">
+        No location detected. Make sure location is enabled on the device.
+    </string>
+    <string name="permission_denied_explanation">
+        Permission was denied, but is needed for core functionality.
+    </string>
+    <string name="permission_rationale">
+        Location permission is needed for core functionality
+    </string>
+    <string name="settings">Settings</string>
+    <string name="error_empty_location">بروز مشکل در مکان یابی</string>
+    <string name="error_general">بروز خطا!</string>
+    <string name="ll">%1$f,%2$f</string>
+    <string name="venue_detail_header" translatable="false">H,3:1</string>
+
+    <string name="str_deserialization_error">خطا در تبدیل اطلاعات!</string>
+    <string name="no_network_error">در حال حاضر دسترسی اینترنت شما فعال نمی باشد لطفا تنظیمات شبکه خود را بررسی
+        نمایید.
+    </string>
+    <string name="general_server_error">خطایی در سرور رخ داده است</string>
+
+
+</resources>

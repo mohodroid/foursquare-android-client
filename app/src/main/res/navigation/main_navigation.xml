@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/venuesListFragment">
+
+    <fragment
+        android:id="@+id/venuesListFragment"
+        android:name="com.mohdroid.foursquare.features.venueslist.VenuesListFragment"
+        android:label="VenuesListFragment">
+
+        <action
+            android:id="@+id/action_venuesListFragment_to_venueDetailFragment"
+            app:destination="@id/venueDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="venue_id"
+                app:argType="string" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/venueDetailFragment"
+        android:name="com.mohdroid.foursquare.features.venuedetail.VenueDetailFragment"
+        android:label="VenueDetailFragment" >
+        <argument
+            android:name="venue_id"
+            app:argType="string" />
+    </fragment>
+</navigation>

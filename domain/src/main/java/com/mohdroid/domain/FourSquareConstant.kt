@@ -1,0 +1,9 @@
+package com.mohdroid.domain
+
+
+const val VERSION: String = "20161101"
+const val CLIENT_ID: String = "WLRGPJSQWJEX4ZVXESOLKYAUJHQRPAGFR3ORNYUIAZSWUF0X"
+const val CLIENT_SECRET: String = "WLXU2U1CTV3TARXNY4CRE3F03NBZFOH0HJCGZJ2N4LCVXCBI"
+
+const val DATABASE_NAME = "foursquare.db"
+

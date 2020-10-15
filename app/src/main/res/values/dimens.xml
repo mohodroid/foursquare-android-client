@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_normal">16dp</dimen>
+    <dimen name="margin_medium">12dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_large">32dp</dimen>
+    <dimen name="spacing_normal">8dp</dimen>
+    <dimen name="spacing_micro">4dp</dimen>
+
+    <dimen name="venue_image_width">100dp</dimen>
+    <dimen name="venue_image_height">100dp</dimen>
+
+    <dimen name="title_venue_text_size">12sp</dimen>
+    <dimen name="address_venue_text_size">10sp</dimen>
+    <dimen name="ll_venue_text_size">10sp</dimen>
+    <dimen name="rate_venue_text_size">12sp</dimen>
+
+    <dimen name="venue_detail_image_height">200dp</dimen>
+    <dimen name="title_venue_detail_text_size">16sp</dimen>
+    <dimen name="rate_venue_detail_text_size">12sp</dimen>
+
+
+</resources>
