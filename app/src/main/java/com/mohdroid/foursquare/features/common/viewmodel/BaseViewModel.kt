@@ -4,6 +4,7 @@ import androidx.lifecycle.LifecycleObserver
 import com.mohdroid.foursquare.features.common.Event
 import com.mohdroid.domain.enums.ErrorType.*
 import com.mohdroid.domain.result.Error
+import com.mohdroid.foursquare.R
 
 interface BaseViewModel : LifecycleObserver,
     ProgressViewModel,

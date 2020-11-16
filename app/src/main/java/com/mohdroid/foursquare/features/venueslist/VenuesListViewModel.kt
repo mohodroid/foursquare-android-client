@@ -13,6 +13,7 @@ import com.mohdroid.domain.result.ServiceResult
 import com.mohdroid.domain.service.VenuesService
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import com.mohdroid.foursquare.R
 
 
 class VenuesListViewModel @Inject constructor(

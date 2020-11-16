@@ -19,6 +19,8 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.snackbar.Snackbar.LENGTH_INDEFINITE
+import com.mohdroid.foursquare.BuildConfig.APPLICATION_ID
+import com.mohdroid.foursquare.R
 import com.mohdroid.foursquare.features.common.ActParent
 import com.mohdroid.foursquare.features.common.RootApp
 import javax.inject.Inject

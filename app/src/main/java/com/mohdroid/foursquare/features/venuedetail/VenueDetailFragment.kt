@@ -11,6 +11,7 @@ import com.mohdroid.foursquare.features.common.FrgParent
 import com.mohdroid.foursquare.features.common.RootApp
 import com.mohdroid.foursquare.utils.LoadImageHelper
 import com.mohdroid.domain.common.getPhotoUrl
+import com.mohdroid.foursquare.R
 import kotlinx.android.synthetic.main.fragment_venue_detail.*
 import javax.inject.Inject
 

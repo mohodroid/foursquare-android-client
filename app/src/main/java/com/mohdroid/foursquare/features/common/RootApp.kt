@@ -2,6 +2,7 @@ package com.mohdroid.foursquare.features.common
 
 import android.app.Application
 import com.mohdroid.foursquare.di.component.AppComponent
+import com.mohdroid.foursquare.di.component.DaggerAppComponent
 import com.mohdroid.foursquare.di.module.AppModule
 import com.mohdroid.repository.di.module.RepositoryModule
 
