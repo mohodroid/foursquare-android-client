@@ -20,7 +20,9 @@ import javax.inject.Singleton
         VenuesListModule::class,
         RepositoryModule::class,
         VenueDetailModule::class,
-        ImageHelperModule::class
+        ImageHelperModule::class,
+        SubcomponentsModule::class,
+        LoginModule::class
     ]
 )
 
@@ -33,5 +35,13 @@ interface AppGraph {
     fun inject(mainActivity: MainActivity)
 
     fun inject(venueDetailFragment: VenueDetailFragment)
+
+    //
+
+    /**
+     * This function exposes the AuthComponent Factory out of the graph so consumers
+     * can use it to obtain new instances of LoginComponent
+     */
+    fun authComponent(): AuthComponent.Factory
 
 }

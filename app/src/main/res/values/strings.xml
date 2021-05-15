@@ -20,6 +20,8 @@
         نمایید.
     </string>
     <string name="general_server_error">خطایی در سرور رخ داده است</string>
+    <string name="email_address">email address</string>
+    <string name="confirm">confirm</string>
 
 
 </resources>
