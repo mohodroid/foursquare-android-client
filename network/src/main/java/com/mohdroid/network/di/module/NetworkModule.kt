@@ -89,8 +89,8 @@ class NetworkModule {
     fun provideRemoteServiceProvider(retrofit: Retrofit): RemoteServiceProvider =
         RemoteServiceProviderImpl(retrofit)
 
-    @Provides
-    fun provideAllVenuesList(allVenuesListImpl: VenueNetworkImpl): VenueNetwork =
-        allVenuesListImpl
+//    @Provides
+//    fun provideAllVenuesList(allVenuesListImpl: VenueNetworkImpl): VenueNetwork =
+//        allVenuesListImpl
 
 }

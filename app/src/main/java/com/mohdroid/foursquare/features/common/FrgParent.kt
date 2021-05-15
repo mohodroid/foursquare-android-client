@@ -1,5 +1,6 @@
 package com.mohdroid.foursquare.features.common
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -14,8 +15,12 @@ abstract class FrgParent<T : AbsViewModel> : Fragment() {
 
     protected lateinit var actParent: ActBase
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
         inject()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         actParent = activity as ActBase
         init()
@@ -54,6 +59,10 @@ abstract class FrgParent<T : AbsViewModel> : Fragment() {
 
     abstract  fun hideProgress()
 
+    /**
+     * Passing in an instance of the Fragment that requests injection.
+     * Make dagger instantiate @Inject field
+     */
     protected abstract fun inject()
 
     fun showToast(text: String) {
