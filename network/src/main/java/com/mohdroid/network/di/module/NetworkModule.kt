@@ -9,6 +9,7 @@ import com.mohdroid.network.interceptor.RequestHeaderInterceptor
 import com.mohdroid.network.networks.VenueNetworkImpl
 import com.mohdroid.network.remoteservices.RemoteServiceProvider
 import com.mohdroid.network.remoteservices.RemoteServiceProviderImpl
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import okhttp3.Cache
@@ -18,10 +19,13 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
+import javax.inject.Singleton
 
-@Module
+/**
+ * @Module informs Dagger that this class is a Dagger Module
+ */
+@Module(includes = [NetworkModule.BindModule::class])
 class NetworkModule {
-
 
     @Provides
     @BaseUrl
@@ -59,6 +63,7 @@ class NetworkModule {
         return RequestHeaderInterceptor()
     }
 
+    @Singleton
     @Provides
     fun provideOkHttp(
         @LogginInterceptor loggingInterceptor: Interceptor,
@@ -72,12 +77,14 @@ class NetworkModule {
             .build()
     }
 
+    @Singleton
     @Provides
     fun provideRetrofit(
         @BaseUrl baseUrl: String,
         @GsonConverter gsonConverterFactory: GsonConverterFactory,
         okHttpClient: OkHttpClient
     ): Retrofit {
+        // Whenever Dagger needs to provide an instance of Retrofit, this code is run.
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(okHttpClient)
@@ -85,12 +92,16 @@ class NetworkModule {
             .build()
     }
 
-    @Provides
-    fun provideRemoteServiceProvider(retrofit: Retrofit): RemoteServiceProvider =
-        RemoteServiceProviderImpl(retrofit)
+    @Module
+    abstract class BindModule {
+        @Binds
+        abstract fun provideRemoteServiceProvider(remoteServiceProviderImpl: RemoteServiceProviderImpl): RemoteServiceProvider
 
-//    @Provides
-//    fun provideAllVenuesList(allVenuesListImpl: VenueNetworkImpl): VenueNetwork =
-//        allVenuesListImpl
+
+        @Binds
+        abstract fun provideAllVenuesList(allVenuesListImpl: VenueNetworkImpl): VenueNetwork
+    }
 
 }
+
+

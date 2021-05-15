@@ -8,12 +8,14 @@ import com.mohdroid.domain.network.VenueNetwork
 import com.mohdroid.network.remoteservices.RemoteServiceProvider
 import retrofit2.Response
 import javax.inject.Inject
+import javax.inject.Singleton
 
 /**
  * An implementation of [VenueNetwork].
  *
  * @author Mohdroid
  */
+@Singleton
 class VenueNetworkImpl @Inject constructor(
     private val remoteServiceProvider: RemoteServiceProvider
 ) : VenueNetwork {

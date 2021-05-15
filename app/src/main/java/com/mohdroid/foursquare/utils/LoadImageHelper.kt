@@ -5,6 +5,7 @@ import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import javax.inject.Inject
+import javax.inject.Singleton
 
 interface LoadImageHelper {
 
@@ -12,6 +13,7 @@ interface LoadImageHelper {
 
 }
 
+@Singleton
 class LoadImageHelperImpl @Inject constructor(ctx: Context) :
     LoadImageHelper {
     private val glide: RequestManager = Glide.with(ctx)

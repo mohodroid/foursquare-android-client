@@ -8,6 +8,9 @@ import com.mohdroid.domain.service.VenueDetailService
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * @Inject tells Dagger how to create instance of VenueDetailViewModel
+ */
 class VenueDetailViewModel @Inject constructor(
     private val venueDetailService: VenueDetailService
 ) : AbsViewModel() {

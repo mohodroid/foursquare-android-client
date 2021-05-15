@@ -6,7 +6,9 @@ import com.mohdroid.domain.service.UserLocationService
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class UserLocationServiceServiceImpl @Inject constructor(
     private val userLocationRepository: UserLocationRepository
 ) : UserLocationService {

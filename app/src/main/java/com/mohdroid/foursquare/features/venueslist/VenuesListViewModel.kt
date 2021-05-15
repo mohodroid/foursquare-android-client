@@ -16,6 +16,9 @@ import javax.inject.Inject
 import com.mohdroid.foursquare.R
 
 
+/**
+ * @Inject tells Dagger how to create instance of VenuesListViewModel
+ */
 class VenuesListViewModel @Inject constructor(
     private val venuesService: VenuesService
 ) : AbsViewModel() {

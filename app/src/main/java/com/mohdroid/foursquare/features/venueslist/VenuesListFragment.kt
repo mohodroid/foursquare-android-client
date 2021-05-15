@@ -115,7 +115,7 @@ class VenuesListFragment : FrgParent<VenuesListViewModel>(), MainActivity.Locati
     override fun getFactoryClass(): Class<VenuesListViewModel> = VenuesListViewModel::class.java
 
     override fun inject() {
-        RootApp.getComponent().inject(this)
+        (context?.applicationContext as RootApp).appGraph.inject(this)
     }
 
     override fun showProgress() {

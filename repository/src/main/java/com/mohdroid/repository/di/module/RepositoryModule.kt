@@ -8,30 +8,30 @@ import com.mohdroid.domain.repository.VenuesRepository
 import com.mohdroid.repository.DataBase
 import com.mohdroid.repository.userlocation.UserLocationRepositoryImpl
 import com.mohdroid.repository.venueslist.VenuesRepositoryImpl
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
-@Module
+@Module(includes = [RepositoryModule.BindModule::class])
 class RepositoryModule(ctx: Application) {
 
     private var database: DataBase =
         Room.databaseBuilder(ctx, DataBase::class.java, DATABASE_NAME).build()
 
-    @Singleton
+
     @Provides
     fun provideDataBase(): DataBase = database
 
-    @Singleton
-    @Provides
-    fun provideVenuesListRepository(
-        dataBase: DataBase
-    ): VenuesRepository = VenuesRepositoryImpl(dataBase.venuesListDao())
+    @Module
+    abstract class BindModule {
+        @Binds
+        abstract fun provideVenuesListRepository(venuesRepositoryImpl: VenuesRepositoryImpl): VenuesRepository
 
-    @Singleton
-    @Provides
-    fun provideUserLocationRepository(
-        dataBase: DataBase
-    ) : UserLocationRepository = UserLocationRepositoryImpl(dataBase.userLocationDao())
+
+        @Binds
+        abstract fun provideUserLocationRepository(userLocationRepositoryImpl: UserLocationRepositoryImpl): UserLocationRepository
+    }
+
 
 }

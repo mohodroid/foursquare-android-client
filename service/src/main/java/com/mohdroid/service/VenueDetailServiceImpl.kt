@@ -13,7 +13,9 @@ import com.mohdroid.domain.service.VenueDetailService
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class VenueDetailServiceImpl @Inject constructor(
     private val venueNetwork: VenueNetwork,
     private val venuesRepository: VenuesRepository

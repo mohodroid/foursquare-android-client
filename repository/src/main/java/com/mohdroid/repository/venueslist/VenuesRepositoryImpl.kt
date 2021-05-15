@@ -3,13 +3,16 @@ package com.mohdroid.repository.venueslist
 import com.mohdroid.domain.entity.UpdatedVenueEntity
 import com.mohdroid.domain.entity.VenueEntity
 import com.mohdroid.domain.repository.VenuesRepository
+import com.mohdroid.repository.DataBase
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class VenuesRepositoryImpl @Inject constructor(
-    private val venuesDao: VenuesDao
+    dataBase: DataBase
 ) : VenuesRepository {
 
-
+    private var venuesDao: VenuesDao = dataBase.venuesListDao()
     override fun insertVenues(venuesListEntity: List<VenueEntity>) {
         venuesDao.insert(venuesListEntity)
     }

@@ -1,13 +1,17 @@
 package com.mohdroid.repository.userlocation
 
-import com.mohdroid.domain.dto.Location
 import com.mohdroid.domain.entity.UserLocationEntity
 import com.mohdroid.domain.repository.UserLocationRepository
+import com.mohdroid.repository.DataBase
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class UserLocationRepositoryImpl @Inject constructor(
-    private val userLocationDao: UserLocationDao
+    dataBase: DataBase
 ): UserLocationRepository {
+
+    private val userLocationDao: UserLocationDao = dataBase.userLocationDao()
 
     override fun insertCurrentLocation(userLocationEntity: UserLocationEntity) {
         userLocationDao.insertCurrentLocation(userLocationEntity)

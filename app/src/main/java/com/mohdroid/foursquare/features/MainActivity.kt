@@ -189,6 +189,6 @@ class MainActivity : ActParent<MainViewModel>() {
     override fun getViewModelClass(): Class<MainViewModel> = MainViewModel::class.java
 
     override fun inject() {
-        RootApp.getComponent().inject(this)
+        (applicationContext as RootApp).appGraph.inject(this)
     }
 }

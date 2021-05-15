@@ -17,10 +17,13 @@ import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.withContext
 import java.util.*
 import javax.inject.Inject
+import javax.inject.Singleton
 import kotlin.math.acos
 import kotlin.math.cos
 import kotlin.math.sin
 
+
+@Singleton
 class VenueServiceImpl @Inject constructor(
     private val venueNetwork: VenueNetwork,
     private val venuesRepository: VenuesRepository,

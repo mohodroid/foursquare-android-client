@@ -61,6 +61,6 @@ class VenueDetailFragment : FrgParent<VenueDetailViewModel>() {
     }
 
     override fun inject() {
-        RootApp.getComponent().inject(this)
+        (context?.applicationContext as RootApp).appGraph.inject(this)
     }
 }

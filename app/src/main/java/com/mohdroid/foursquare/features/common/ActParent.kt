@@ -55,6 +55,11 @@ abstract class ActParent<T : AbsViewModel> : ActBase() {
 
     protected abstract fun getViewModelClass(): Class<T>
 
+    /**
+     * Passing in an instance of the Activity that requests injection.
+     * Make dagger instantiate @Inject field.
+     * Calling before super.onCreate() to avoid issue with fragments
+     */
     protected abstract fun inject()
 
 
