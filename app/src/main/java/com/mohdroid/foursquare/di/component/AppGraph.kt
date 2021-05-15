@@ -5,7 +5,7 @@ import com.mohdroid.foursquare.features.MainActivity
 import com.mohdroid.foursquare.features.venuedetail.VenueDetailFragment
 import com.mohdroid.foursquare.features.venueslist.VenuesListFragment
 import com.mohdroid.network.di.module.NetworkModule
-import com.mohdroid.repository.di.module.RepositoryModule
+import com.mohdroid.persistent.di.module.PersistentModule
 import com.mohdroid.service.di.module.ServiceModule
 import dagger.Component
 import javax.inject.Singleton
@@ -18,7 +18,7 @@ import javax.inject.Singleton
         MainModule::class,
         AppModule::class,
         VenuesListModule::class,
-        RepositoryModule::class,
+        PersistentModule::class,
         VenueDetailModule::class,
         ImageHelperModule::class,
         SubcomponentsModule::class,

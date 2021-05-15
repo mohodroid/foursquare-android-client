@@ -6,7 +6,7 @@ import com.mohdroid.domain.dto.VenueDetailResponse
 import com.mohdroid.domain.entity.VenueEntity
 import com.mohdroid.domain.enums.ErrorType
 import com.mohdroid.domain.network.VenueNetwork
-import com.mohdroid.domain.repository.VenuesRepository
+import com.mohdroid.domain.persistent.VenuesPersistent
 import com.mohdroid.domain.result.Error
 import com.mohdroid.domain.result.ServiceResult
 import com.mohdroid.domain.service.VenueDetailService
@@ -18,14 +18,14 @@ import javax.inject.Singleton
 @Singleton
 class VenueDetailServiceImpl @Inject constructor(
     private val venueNetwork: VenueNetwork,
-    private val venuesRepository: VenuesRepository
+    private val venuesPersistent: VenuesPersistent
 ) : VenueDetailService {
 
     override suspend fun getVenueDetail(venueId: String): ServiceResult<VenueEntity> {
         if (venueId.isEmpty()) return ServiceResult.Failure(Error(ErrorType.EMPTY_VENUE_ID))
         var local: VenueEntity? = null
         withContext(IO) {
-            local = venuesRepository.getVenueDetail(venueId)
+            local = venuesPersistent.getVenueDetail(venueId)
         }
         local?.let {
             if (it.modified)
@@ -42,7 +42,7 @@ class VenueDetailServiceImpl @Inject constructor(
                         ErrorType.EXCEPTION
                     )
                 )
-                val updateVenue = venuesRepository.updateVenue(
+                val updateVenue = venuesPersistent.updateVenue(
                     local!!,
                     venue.convertToUpdateVenueEntity()
                 )

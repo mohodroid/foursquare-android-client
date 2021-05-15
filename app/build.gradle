@@ -85,7 +85,7 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation project(path: ':network')
-    implementation project(path: ':repository')
+    implementation project(path: ':persistent')
     implementation project(path: ':service')
     implementation project(path: ':domain')
 }

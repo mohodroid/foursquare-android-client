@@ -1,2 +1,2 @@
-include ':app', ':service', ':repository', ':network', ':domain'
+include ':app', ':service', ':persistent', ':network', ':domain'
 rootProject.name='Foursquare'

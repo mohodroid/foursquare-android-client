@@ -7,7 +7,7 @@ import com.mohdroid.domain.entity.UserLocationEntity
 import com.mohdroid.domain.entity.VenueEntity
 import com.mohdroid.domain.enums.ErrorType
 import com.mohdroid.domain.network.VenueNetwork
-import com.mohdroid.domain.repository.VenuesRepository
+import com.mohdroid.domain.persistent.VenuesPersistent
 import com.mohdroid.domain.result.Error
 import com.mohdroid.domain.result.ServiceResult
 import com.mohdroid.domain.result.ServiceResult.Failure
@@ -26,7 +26,7 @@ import kotlin.math.sin
 @Singleton
 class VenueServiceImpl @Inject constructor(
     private val venueNetwork: VenueNetwork,
-    private val venuesRepository: VenuesRepository,
+    private val venuesPersistent: VenuesPersistent,
     private val userLocationService: UserLocationService
 ) : VenuesService {
 
@@ -59,9 +59,9 @@ class VenueServiceImpl @Inject constructor(
         var local: List<VenueEntity>? = null
         var totalResult = 0
         withContext(IO) {
-            totalResult = venuesRepository.getTotalCount()
+            totalResult = venuesPersistent.getTotalCount()
             local =
-                venuesRepository.getVenues(venueRequestService.limit, venueRequestService.offset)
+                venuesPersistent.getVenues(venueRequestService.limit, venueRequestService.offset)
             liveData.postValue(local)
         }
         if (!local.isNullOrEmpty())
@@ -83,7 +83,7 @@ class VenueServiceImpl @Inject constructor(
         if (validationResult.first)
             return validationResult.second!!
         withContext(IO) {
-            venuesRepository.removeOldVenues()
+            venuesPersistent.removeOldVenues()
         }
         val venueRequest = VenueRequest(
             section = venueRequestService.SectionType.value,
@@ -116,7 +116,7 @@ class VenueServiceImpl @Inject constructor(
                     it.venue.convertToVenueEntity()
                 }
                 withContext(IO) {
-                    venuesRepository.insertVenues(venues)
+                    venuesPersistent.insertVenues(venues)
                 }
                 liveData.postValue(venues)
                 //prevent non-null
