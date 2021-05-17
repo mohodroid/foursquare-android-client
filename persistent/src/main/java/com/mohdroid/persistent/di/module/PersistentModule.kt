@@ -1,6 +1,7 @@
 package com.mohdroid.persistent.di.module
 
 import android.app.Application
+import android.content.Context
 import androidx.room.Room
 import com.mohdroid.domain.DATABASE_NAME
 import com.mohdroid.domain.persistent.UserLocationPersistent
@@ -11,16 +12,16 @@ import com.mohdroid.persistent.venueslist.VenuesPersistentImpl
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
 
 @Module(includes = [PersistentModule.BindModule::class])
-class PersistentModule(ctx: Application) {
+class PersistentModule {
 
-    private var database: DataBase =
-        Room.databaseBuilder(ctx, DataBase::class.java, DATABASE_NAME).build()
-
-
+    @Singleton
     @Provides
-    fun provideDataBase(): DataBase = database
+    fun provideDataBase(ctx: Context): DataBase  {
+        return Room.databaseBuilder(ctx, DataBase::class.java, DATABASE_NAME).build()
+    }
 
     @Module
     abstract class BindModule {
